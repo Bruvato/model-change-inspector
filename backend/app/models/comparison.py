@@ -5,9 +5,10 @@ from typing import Optional
 
 
 class ComparisonBase(SQLModel):
-    prompt: str
     model_a: str
+    prompt_a: str
     model_b: str
+    prompt_b: str
 
 
 class Comparison(ComparisonBase, table=True):
@@ -30,3 +31,6 @@ class ComparisonRead(ComparisonBase):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class ComparisonWithAnalysis(ComparisonRead):
+    analysis: dict
