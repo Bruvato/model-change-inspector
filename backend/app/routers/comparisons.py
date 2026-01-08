@@ -28,8 +28,8 @@ async def create_comparison(
         prompt_b=request.prompt_b,
     )
 
-    similarity_score = comparison_service.compute_similarity(output_a, output_b)
-    analysis = comparison_service.analyze_differences(output_a, output_b)
+    similarity_score = comparison_service.calculate_similarity(output_a, output_b)
+    analysis = comparison_service.analyze_diff(output_a, output_b)
 
     comparison = Comparison(
         model_a=request.model_a,
